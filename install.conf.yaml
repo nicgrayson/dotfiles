@@ -1,0 +1,16 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.dotfiles: ''
+    ~/.oh-my-zsh: .oh-my-zsh
+    ~/.zshrc: zshrc
+    ~/.zsh-syntax-highlighting:
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - if [[ ! $SHELL = *"zsh"* ]]; then chsh -s $(which zsh); fi
